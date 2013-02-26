@@ -19,6 +19,7 @@ static char copyright[] =
 #include <assert.h> /* assert */
 #include <ctype.h> /* isdigit */
 #include <errno.h> /* errno */
+#include <limits.h> /* CHAR_BIT */
 #include <math.h> /* sin */
 #include <stddef.h> /* NULL */
 #include <stdio.h> /* sprintf, fprintf, stderr */
