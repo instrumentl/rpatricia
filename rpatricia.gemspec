@@ -31,7 +31,7 @@ Changes
 README
 TODO
 copyright
-credits.txt
+ext/rpatricia/credits.txt
 ext/rpatricia/extconf.rb
 ext/rpatricia/patricia.c
 ext/rpatricia/patricia.h
