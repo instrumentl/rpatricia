@@ -3,7 +3,7 @@
 
 Gem::Specification.new do |s|
   s.name = %q{rpatricia}
-  s.version = %q{1.0} # remember to update Changes if this is changed
+  s.version = %q{1.0.1} # remember to update Changes if this is changed
 
   s.homepage = "http://www.goto.info.waseda.ac.jp/~tatsuya/rpatricia/"
 
@@ -30,7 +30,7 @@ I have modified some interfaces for the Ruby wrapper version.
 Changes
 README
 TODO
-COPYRIGHT
+COPYING
 LGPL-2.1
 ext/rpatricia/credits.txt
 ext/rpatricia/extconf.rb

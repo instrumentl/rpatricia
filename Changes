@@ -1,3 +1,7 @@
+1.0.1 2014/01/28
+ - Update license to LGPLv2.1+
+ - missing CHAR_BIT macro for some platforms
+
 1.0 2012/10/05
  - Add Patricia#nodes methods to return all nodes as a Hash
 
