@@ -30,7 +30,8 @@ I have modified some interfaces for the Ruby wrapper version.
 Changes
 README
 TODO
-copyright
+COPYRIGHT
+LGPL-2.1
 ext/rpatricia/credits.txt
 ext/rpatricia/extconf.rb
 ext/rpatricia/patricia.c
