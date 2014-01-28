@@ -40,4 +40,5 @@ rpatricia.gemspec
 test.rb
 )
   s.extensions = %w(ext/rpatricia/extconf.rb)
+  s.licenses = %w(LGPLv2.1+)
 end
