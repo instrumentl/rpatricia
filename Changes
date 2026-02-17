@@ -2,7 +2,6 @@
  - Add rb_undef_alloc_func(cNode) to fix Ruby 3.4+ allocator warning
  - Clean up trailing whitespace in C source
 
-
 1.0.1 2014/01/28
  - Update license to LGPLv2.1+
  - missing CHAR_BIT macro for some platforms
