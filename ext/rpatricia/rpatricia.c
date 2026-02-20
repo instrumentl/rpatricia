@@ -69,7 +69,7 @@ p_add (int argc, VALUE *argv, VALUE self)
   patricia_node_t *node;
   prefix_t prefix;
 
-  if (argc > 2 || argc < 1) 
+  if (argc > 2 || argc < 1)
     return Qnil;
 
   Data_Get_Struct(self, patricia_tree_t, tree);
@@ -116,7 +116,7 @@ p_match (VALUE self, VALUE r_key)
   patricia_tree_t *tree;
   patricia_node_t *node;
   prefix_t prefix;
-  
+
   Data_Get_Struct(self, patricia_tree_t, tree);
   my_ascii2prefix(tree, r_key, &prefix);
   node = patricia_search_best(tree, &prefix);
@@ -385,6 +385,9 @@ Init_rpatricia (void)
   rb_define_private_method(cPatricia, "initialize", p_init, -1);
   rb_define_method(cPatricia, "initialize_copy", p_init_copy, 1);
 
+  /* prevent warning on ruby 3.2+ */
+  rb_undef_alloc_func(cNode);
+
   /*---------- methods to tree ----------*/
   /* add string */
   rb_define_method(cPatricia, "add", p_add, -1);
@@ -392,19 +395,19 @@ Init_rpatricia (void)
   rb_define_method(cPatricia, "family", p_family, 0);
 
   /* match prefix */
-  rb_define_method(cPatricia, "match_best", p_match, 1); 
-  rb_define_method(cPatricia, "search_best", p_match, 1); 
+  rb_define_method(cPatricia, "match_best", p_match, 1);
+  rb_define_method(cPatricia, "search_best", p_match, 1);
 
   /* exact match  */
-  rb_define_method(cPatricia, "match_exact", p_match_exact, 1); 
-  rb_define_method(cPatricia, "search_exact", p_match_exact, 1); 
+  rb_define_method(cPatricia, "match_exact", p_match_exact, 1);
+  rb_define_method(cPatricia, "search_exact", p_match_exact, 1);
 
   /* check existence */
   rb_define_method(cPatricia, "include?", p_include, 1);
 
   /* removal */
-  rb_define_method(cPatricia, "remove", p_remove, 1); 
-  rb_define_method(cPatricia, "remove_node", p_remove, 1); 
+  rb_define_method(cPatricia, "remove", p_remove, 1);
+  rb_define_method(cPatricia, "remove_node", p_remove, 1);
 
   /* derivatives of climb */
   rb_define_method(cPatricia, "num_nodes", p_num_nodes, 0);
@@ -412,8 +415,8 @@ Init_rpatricia (void)
   rb_define_method(cPatricia, "nodes", p_nodes, 0);
 
   /* destroy tree */
-  rb_define_method(cPatricia, "destroy", p_destroy, 0); 
-  rb_define_method(cPatricia, "clear", p_destroy, 0); 
+  rb_define_method(cPatricia, "destroy", p_destroy, 0);
+  rb_define_method(cPatricia, "clear", p_destroy, 0);
 
   /*---------- methods to node ----------*/
   rb_define_method(cNode, "data", p_data, 0);
