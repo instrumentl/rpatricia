@@ -304,7 +304,7 @@ Destroy_Patricia (patricia_tree_t *patricia, void_fn_t func)
  */
 
 void
-patricia_process (patricia_tree_t *patricia, void_fn_t func)
+patricia_process (patricia_tree_t *patricia, prefix_fn_t func)
 {
     patricia_node_t *node;
     assert (func);
@@ -315,7 +315,7 @@ patricia_process (patricia_tree_t *patricia, void_fn_t func)
 }
 
 size_t
-patricia_walk_inorder(patricia_node_t *node, void_fn_t func)
+patricia_walk_inorder(patricia_node_t *node, prefix_fn_t func)
 {
     size_t n = 0;
     assert(func);

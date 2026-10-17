@@ -8,14 +8,15 @@
 #include "patricia.h"
 #include <assert.h>
 
-size_t patricia_walk_inorder(patricia_node_t *node, void_fn_t func);
+size_t patricia_walk_inorder(patricia_node_t *node, prefix_fn_t func);
 char * prefix_toa2x(prefix_t *prefix, char *buff, int with_len);
 char * prefix_toa2(prefix_t *prefix, char *buff);
 
 static VALUE cPatricia, cNode;
 static VALUE sym_AF_INET, sym_AF_INET6;
 
-static void dummy(void) {}
+static void dummy(void *data) {}
+static void dummy_prefix(prefix_t *prefix, void *data) {}
 
 static VALUE
 p_destroy (VALUE self)
@@ -159,7 +160,7 @@ p_num_nodes (VALUE self)
   patricia_tree_t *tree;
 
   Data_Get_Struct(self, patricia_tree_t, tree);
-  n = tree->head ? patricia_walk_inorder(tree->head, dummy) : 0;
+  n = tree->head ? patricia_walk_inorder(tree->head, dummy_prefix) : 0;
 
   return INT2NUM(n);
 }
